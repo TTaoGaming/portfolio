@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tommy Tao — AgentReleaseGate &amp; Hive Fleet Obsidian</title>
+<meta name="description" content="Live, verified work: AgentReleaseGate (AI-agent claim audits), open reward-hacking tools, and browser gesture/game demos.">
+<style>
+  :root {
+    --bg: #faf8f4;
+    --bg-card: #ffffff;
+    --text: #1c1a17;
+    --text-dim: #57534a;
+    --accent: #b3391f;
+    --accent-soft: #f3e2dc;
+    --rule: #e4ddd2;
+    --mono-bg: #f1ede4;
+    --tag-bg: #1c1a17;
+    --tag-text: #faf8f4;
+    --live: #2f7a3d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17140f;
+      --bg-card: #1f1c16;
+      --text: #f2ede3;
+      --text-dim: #b8b0a1;
+      --accent: #e8724a;
+      --accent-soft: #3a251d;
+      --rule: #34302a;
+      --mono-bg: #26221b;
+      --tag-bg: #e8724a;
+      --tag-text: #17140f;
+      --live: #6fd47f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17140f; --bg-card: #1f1c16; --text: #f2ede3; --text-dim: #b8b0a1;
+    --accent: #e8724a; --accent-soft: #3a251d; --rule: #34302a; --mono-bg: #26221b;
+    --tag-bg: #e8724a; --tag-text: #17140f; --live: #6fd47f;
+  }
+  :root[data-theme="light"] {
+    --bg: #faf8f4; --bg-card: #ffffff; --text: #1c1a17; --text-dim: #57534a;
+    --accent: #b3391f; --accent-soft: #f3e2dc; --rule: #e4ddd2; --mono-bg: #f1ede4;
+    --tag-bg: #1c1a17; --tag-text: #faf8f4; --live: #2f7a3d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  header.hero { padding-bottom: 2rem; border-bottom: 3px solid var(--text); margin-bottom: 2.5rem; }
+  .kicker {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 0.9rem;
+  }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 0.9rem; line-height: 1.2; }
+  .lede { color: var(--text-dim); font-size: 1.08rem; max-width: 58ch; margin: 0; }
+  section { margin: 2.6rem 0; }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-dim); margin: 0 0 1.1rem; font-weight: 700;
+  }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 1.4rem 1.5rem; margin-bottom: 1rem;
+  }
+  .card h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+  .card h3 a { color: var(--text); text-decoration: none; border-bottom: 2px solid var(--accent); }
+  .card h3 a:hover { color: var(--accent); }
+  .card p { margin: 0.5rem 0 0; color: var(--text-dim); font-size: 0.97rem; }
+  .status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--live); margin-bottom: 0.5rem;
+  }
+  .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--live); }
+  .status.muted { color: var(--text-dim); }
+  .status.muted .dot { background: var(--text-dim); }
+  .tag {
+    display: inline-block; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    background: var(--tag-bg); color: var(--tag-text); border-radius: 5px; padding: 2px 8px;
+    margin-left: 0.5rem; vertical-align: middle;
+  }
+  a.plain { color: var(--accent); }
+  code {
+    background: var(--mono-bg); border-radius: 5px; padding: 1px 6px;
+    font-size: 0.85em; font-family: "SF Mono", Consolas, monospace;
+  }
+  .heritage {
+    background: var(--accent-soft); border-radius: 12px; padding: 1.6rem 1.7rem;
+    font-size: 0.98rem; color: var(--text);
+  }
+  .heritage p { margin: 0 0 0.8rem; }
+  .heritage p:last-child { margin-bottom: 0; }
+  footer.contact {
+    border-top: 1px solid var(--rule); margin-top: 3rem; padding-top: 1.6rem;
+    font-size: 0.92rem; color: var(--text-dim);
+  }
+  footer.contact a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">Tommy Tao &middot; solo builder</div>
+    <h1>Catching AI agents when they lie about being done.</h1>
+    <p class="lede">Pre-release adversarial audits, a free open-source claim-checker, and a
+    field guide of ten real, caught failure modes — plus a couple of live browser demos along
+    the way. Everything linked below is verified live at the time of publishing.</p>
+  </header>
+
+  <section>
+    <h2>The product</h2>
+    <div class="card">
+      <div class="status"><span class="dot"></span>live</div>
+      <h3><a href="https://agentreleasegate.com" target="_blank" rel="noopener">AgentReleaseGate</a></h3>
+      <p>Pre-release adversarial audits for AI agents: reward-hacking, eval-gaming, and
+      false-green results — the failures internal evals structurally miss, because the same
+      team usually builds and grades them.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Free &amp; open</h2>
+    <div class="card">
+      <div class="status"><span class="dot"></span>live</div>
+      <h3><a href="https://github.com/TTaoGaming/agentreleasegate-oss" target="_blank" rel="noopener">agentreleasegate-oss</a></h3>
+      <p>The published policy behind the product, free and MIT-licensed. Two ways in:
+      <a class="plain" href="https://github.com/TTaoGaming/agentreleasegate-oss/tree/master/claim_gate" target="_blank" rel="noopener"><code>claim_gate/</code></a>
+      — one JSON claim in, ALLOW/DENY out, with an OPA engine and a zero-dependency Python
+      fallback — and
+      <a class="plain" href="https://github.com/TTaoGaming/agentreleasegate-oss/tree/master/reward_hack_mirror" target="_blank" rel="noopener"><code>reward_hack_mirror/</code></a>,
+      an 8-rule version with a tamper-evident hash chain. No signup, no network call, no
+      account required to run either.</p>
+    </div>
+    <div class="card">
+      <div class="status"><span class="dot"></span>live</div>
+      <h3><a href="field-guide.html">The AI-Agent Failure-Mode Field Guide</a></h3>
+      <p>Ten ways an agent lies about being done — frame-override, false-green, phantom
+      citations, self-consistency mistaken for verification, and more — each one named, dated,
+      and caught in a real project, with the mechanical check that catches it. Citations
+      grep-verified against source records; see the guide's own footer for the honest limits
+      of that verification.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Live demos</h2>
+    <div class="card">
+      <div class="status"><span class="dot"></span>live &middot; public alpha</div>
+      <h3><a href="https://demo01-handpiano.pages.dev/" target="_blank" rel="noopener">Signal Refinery — webcam gesture piano</a></h3>
+      <p>Turns your webcam into a hands-free musical instrument, entirely client-side —
+      browser-based hand tracking feeds a tunable kinematic-guard pipeline (rejects
+      teleports, impossible velocity, NaNs) into a dwell-and-hitbox note trigger. Self-labeled
+      "alpha, WIP tuning disclosed" on the page itself; desktop Chrome/Edge with a webcam is
+      the safe bet.</p>
+    </div>
+    <div class="card">
+      <div class="status"><span class="dot"></span>live</div>
+      <h3><a href="https://hfo-games.pages.dev/" target="_blank" rel="noopener">Omega Games</a> — 21 browser games</h3>
+      <p>A hub of small, tap-to-play HTML5 games — standard touch/mouse/click, no install.
+      (Not a gesture/camera product — that's the demo above.)</p>
+    </div>
+  </section>
+
+  <section class="heritage">
+    <h2>The heritage story</h2>
+    <p>This work comes out of an 18-month, solo AI-agent build (Jan 2025–present) that started
+    as an attempt to build useful software with AI coding agents and turned, gradually, into a
+    project about <em>trusting</em> them — after watching the same handful of failure patterns
+    recur across model families: a "done" that wasn't tested, a "sent" that was only drafted, a
+    self-review that agreed with itself because it shared the same blind spots as the work it
+    was reviewing. AgentReleaseGate and the tools above are the distilled, generalized version
+    of the checks built to catch exactly that, running against a project's own recorded record
+    of ~1,000 real successes and failures.</p>
+    <p>None of this claims to catch every way an agent can fake progress — the field guide and
+    the OSS gate are both explicit about their limits. The claim is narrower and, I think, more
+    useful: these catch a few specific, common, machine-checkable lies, deterministically,
+    every time.</p>
+  </section>
+
+  <footer class="contact">
+    Questions, a teardown, or a reward-hack pattern I'm missing:
+    <a href="mailto:hello@agentreleasegate.com">hello@agentreleasegate.com</a>
+    &middot; <a href="https://github.com/TTaoGaming" target="_blank" rel="noopener">github.com/TTaoGaming</a>
+  </footer>
+
+</div>
+</body>
+</html>
