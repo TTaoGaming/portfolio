@@ -1,0 +1,135 @@
+{
+  "canonical_sha256": "14da9fd3bfa7e3e615c78c5d6cf73dc0262ea3ff65eb29553be502de37f0df05",
+  "checkers": {
+    "cpp": {
+      "candidate": {
+        "endpoint_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52971",
+        "multiplications": 45,
+        "operations": 425,
+        "squarings": 380,
+        "valid": true
+      }
+    },
+    "node": {
+      "candidate": {
+        "endpoint_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52971",
+        "multiplications": 45,
+        "operations": 425,
+        "sha256": "14da9fd3bfa7e3e615c78c5d6cf73dc0262ea3ff65eb29553be502de37f0df05",
+        "squarings": 380,
+        "valid": true
+      }
+    },
+    "python": {
+      "candidate": {
+        "endpoint_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52971",
+        "multiplications": 45,
+        "operations": 425,
+        "sha256": "14da9fd3bfa7e3e615c78c5d6cf73dc0262ea3ff65eb29553be502de37f0df05",
+        "squarings": 380,
+        "unused_operations": 0,
+        "valid": true
+      }
+    }
+  },
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "elapsed_seconds": 20.624,
+  "invalid_scalar_inputs_rejected": [
+    "0",
+    "-1",
+    "39402006196394479212279040100143613805079739270465446667946905279627659399113263569398956308152294913554433653942643",
+    "39402006196394479212279040100143613805079739270465446667946905279627659399113263569398956308152294913554433653942644",
+    "True"
+  ],
+  "json_alternate_encoding": "not_in_this_package",
+  "negative_controls": {
+    "cpp": {
+      "cases": [
+        "empty",
+        "missing_final_newline",
+        "truncated_endpoint",
+        "deleted_first_operation",
+        "deleted_51",
+        "duplicate_first_operation",
+        "reordered_dependencies",
+        "unavailable_parent",
+        "self_reference",
+        "negative_operand",
+        "wrong_sum",
+        "wrong_51_parents",
+        "leading_zero",
+        "header_spoof",
+        "extra_column",
+        "blank_line",
+        "non_ascii",
+        "self_consistent_wrong_n_minus_one",
+        "valid_chain_for_field_prime_minus_two",
+        "valid_chain_for_scalar_order"
+      ],
+      "rejected": 20
+    },
+    "node": {
+      "cases": [
+        "empty",
+        "missing_final_newline",
+        "truncated_endpoint",
+        "deleted_first_operation",
+        "deleted_51",
+        "duplicate_first_operation",
+        "reordered_dependencies",
+        "unavailable_parent",
+        "self_reference",
+        "negative_operand",
+        "wrong_sum",
+        "wrong_51_parents",
+        "leading_zero",
+        "header_spoof",
+        "extra_column",
+        "blank_line",
+        "non_ascii",
+        "self_consistent_wrong_n_minus_one",
+        "valid_chain_for_field_prime_minus_two",
+        "valid_chain_for_scalar_order"
+      ],
+      "rejected": 20
+    },
+    "python": {
+      "cases": [
+        "empty",
+        "missing_final_newline",
+        "truncated_endpoint",
+        "deleted_first_operation",
+        "deleted_51",
+        "duplicate_first_operation",
+        "reordered_dependencies",
+        "unavailable_parent",
+        "self_reference",
+        "negative_operand",
+        "wrong_sum",
+        "wrong_51_parents",
+        "leading_zero",
+        "header_spoof",
+        "extra_column",
+        "blank_line",
+        "non_ascii",
+        "self_consistent_wrong_n_minus_one",
+        "valid_chain_for_field_prime_minus_two",
+        "valid_chain_for_scalar_order"
+      ],
+      "rejected": 20
+    }
+  },
+  "node_version": "v22.16.0",
+  "nonzero_modular_tests": 1413,
+  "openssl_order_binding": {
+    "order_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52973",
+    "status": "PASS",
+    "version": "OpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)"
+  },
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python_version": "3.13.5",
+  "scope": "mathematical endpoint and count; not production speed, side-channel review, global optimality or external acceptance",
+  "total_negative_rejections": 60,
+  "utc": "2026-09-21T21:03:55.322300+00:00",
+  "verdict": "PASS"
+}
