@@ -8,7 +8,8 @@ This is a research-review package, not a production cryptography library or an a
 - [One-page review](P384_425_Review.pdf)
 - [Exact chain](p384_scalar_inversion_425.txt): 425 lines of `output_exponent left_exponent right_exponent`.
 - [Numerically sorted chain](p384_scalar_inversion_425_sorted.txt): equivalent ordering for parsers requiring increasing values.
-- [Haskell expression](P384Scalar425.hs): optional representation; not compiled in this packaging pass.
+- [Haskell expression](P384Scalar425.hs): optional representation; the file comment describes the original 2026-09-21 packaging pass. It was subsequently compiled and replayed on 2026-09-22 using Brian Smith's exact attached Haskell framework.
+- [Brian Smith Haskell framework replay](verification/brian_haskell_replay_2026-09-22.md): fresh GHC replay using the exact `ECCInversionAdditionChains.lhs` and `AdditionChainComputation.lhs` files from Brian's email.
 - [Reproduction and checks](verification/): source only. No compiled binaries, credentials, or private correspondence.
 
 ## Precise claim
@@ -46,6 +47,8 @@ python verification/check_review_package.py
 ```
 
 The supplied [test receipt](verification/results.json) records 3 exact-integer implementations agreeing on the endpoint/counts, 20 negative controls rejected by each implementation (60 total), and 1,413 nonzero modular-inversion examples. Wrong-target but internally valid chains are included among the negative controls. The receipt is an internal execution record, not external certification. The full test command overwrites its local `verification/results.json` with the new execution record.
+
+A fresh 2026-09-22 replay also compiled this candidate with **Brian Smith's exact two Haskell source attachments** and used his `AdditionChainComputation` measurements. It returned `target_matches=True`, `r=425`, `d=380`, and `f=45`. As a control, Brian's historical P-384 scalar chain contained in the attached `ECCInversionAdditionChains.lhs` returned `433 = 381 + 52`. That historical attachment is distinct from the newer `ring` implementation Brian cited as `430 = 382 + 48`. See the [full replay receipt](verification/brian_haskell_replay_2026-09-22.md).
 
 The compact [recipe](verification/recipe425.py) and [data-only expander](verification/recipe_evaluator.py) regenerate the canonical sequence. On systems where text output uses CRLF, normalize output to ASCII LF before comparing the byte hash.
 
