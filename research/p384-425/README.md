@@ -1,14 +1,14 @@
 # P-384 scalar inversion: 425-operation review candidate
 
-**Author:** Tommy Tai. **Status:** internally checked; independent review pending.
+**Author:** Tommy Tai. **Status:** internally checked; independent review pending. **Last refreshed:** 22 September 2026.
 This is a research-review package, not a production cryptography library or an accepted record.
 
 ## Start here
 
-- [One-page review](P384_425_Review.pdf)
+- [One-page review](P384_425_Review.pdf): refreshed 22 September 2026 with the fresh Brian-framework replay and current claim ceiling.
 - [Exact chain](p384_scalar_inversion_425.txt): 425 lines of `output_exponent left_exponent right_exponent`.
 - [Numerically sorted chain](p384_scalar_inversion_425_sorted.txt): equivalent ordering for parsers requiring increasing values.
-- [Haskell expression](P384Scalar425.hs): optional representation; the file comment describes the original 2026-09-21 packaging pass. It was subsequently compiled and replayed on 2026-09-22 using Brian Smith's exact attached Haskell framework.
+- [Haskell expression](P384Scalar425.hs): optional representation; compiled on 22 September 2026 with GHC 9.8.4 and replayed using Brian Smith's exact attached Haskell framework.
 - [Brian Smith Haskell framework replay](verification/brian_haskell_replay_2026-09-22.md): fresh GHC replay using the exact `ECCInversionAdditionChains.lhs` and `AdditionChainComputation.lhs` files from Brian's email.
 - [Reproduction and checks](verification/): source only. No compiled binaries, credentials, or private correspondence.
 
@@ -56,7 +56,7 @@ The compact [recipe](verification/recipe425.py) and [data-only expander](verific
 
 The candidate came from AI-assisted evolutionary search over small precomputation dictionaries and an overlapping positive-digit tail representation. The recipe documents reconstruction, not every historical search trajectory or model call. Further search can explore new intermediate values and joint tail/dictionary changes while preserving a fixed target and evaluator.
 
-The package does **not** prove shortest-chain optimality, global novelty, measured native-code speedup, side-channel safety, or suitability for production use. The checkers are different implementations but are still internally prepared; review of their assumptions and of this precise claim is welcome. No outside acceptance or endorsement is claimed.
+The package does **not** prove shortest-chain optimality, global novelty, measured native-code speedup, side-channel safety, or suitability for production use. The Python, JavaScript, C++, and fresh Brian-framework Haskell replays are all internally executed evidence; they are not Brian's independent verification or external acceptance. Review of the assumptions and of this precise claim is welcome.
 
 ## Integrity
 
