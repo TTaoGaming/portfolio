@@ -1,7 +1,10 @@
 -- Generated directly from p384_scalar_inversion_425.txt.
 -- File SHA256: 14da9fd3bfa7e3e615c78c5d6cf73dc0262ea3ff65eb29553be502de37f0df05
--- This .hs serialization has been structurally cross-checked, NOT GHC-run
--- in the 2026-09-21 audit environment. The text certificate is authoritative.
+-- This .hs serialization was structurally cross-checked in the 2026-09-21 packaging pass.
+-- On 2026-09-22 it was compiled with GHC 9.8.4 and replayed with Brian Smith's
+-- exact attached AdditionChainComputation framework: r=425, d=380, f=45,
+-- with the exact P-384 scalar-order-minus-two endpoint. See
+-- verification/brian_haskell_replay_2026-09-22.md. The text certificate is authoritative.
 module P384Scalar425 (p384ScalarInverseExponent425) where
 
 p384ScalarInverseExponent425 :: (a -> a) -> (a -> a -> a) -> a -> a
