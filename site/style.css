@@ -1,32 +1,54 @@
 :root {
   color-scheme: light;
   font-family: Georgia, Cambria, "Times New Roman", serif;
-  line-height: 1.65;
-  background: #f9f7f1;
-  color: #202823;
+  line-height: 1.6;
+  background: #f8f7f2;
+  color: #172923;
 }
 
 * { box-sizing: border-box; }
 body { margin: 0; }
 a { color: #125a51; text-underline-offset: 0.18em; }
 a:hover, a:focus { color: #0a3933; }
-header, main, footer { width: min(100% - 2.5rem, 48rem); margin-inline: auto; }
-header { padding: 2.5rem 0 1rem; border-bottom: 1px solid #c8d3cd; }
+header, main, footer { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+header { padding: 2rem 0 1rem; border-bottom: 1px solid #c8d3cd; }
+.site-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; }
 header a { text-decoration: none; }
 .site-name { font-family: system-ui, sans-serif; font-size: 1rem; font-weight: 750; letter-spacing: 0.04em; }
-nav { float: right; font-family: system-ui, sans-serif; font-size: 0.85rem; }
-nav a + a { margin-left: 1.25rem; }
+nav { display: flex; gap: 0.5rem 1.25rem; flex-wrap: wrap; font-family: system-ui, sans-serif; font-size: 0.88rem; }
+nav a[aria-current] { font-weight: 700; }
 main { padding: 2.5rem 0 5rem; }
+main > article { max-width: 48rem; }
 h1, h2, h3 { line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; }
-h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 1rem; }
-h2 { font-size: 1.65rem; margin-top: 2.5rem; }
+h1 { font-size: clamp(2.45rem, 6vw, 4.7rem); max-width: 16ch; margin: 0 0 1.2rem; }
+h2 { font-size: clamp(1.65rem, 3vw, 2.15rem); margin: 0.15rem 0 1.3rem; }
 h3 { font-size: 1.2rem; }
 p, li { font-size: 1.1rem; }
 .eyebrow, .meta, .small { font: 0.84rem/1.5 system-ui, sans-serif; color: #52625a; }
 .eyebrow { text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
-.lede { font-size: 1.35rem; color: #364b40; }
+.lede { font-size: clamp(1.2rem, 2.3vw, 1.5rem); color: #364b40; max-width: 51rem; }
+.hero { padding: 2.5rem 0 3.5rem; border-bottom: 1px solid #c8d3cd; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+.button { display: inline-block; padding: 0.75rem 1.15rem; color: #fff; background: #125a51; border-radius: 0.35rem; font: 700 0.94rem/1.4 system-ui, sans-serif; text-decoration: none; }
+.button:hover, .button:focus { color: #fff; background: #0a3933; }
+.text-link { font: 700 0.94rem/1.4 system-ui, sans-serif; }
+.section { padding: 3.5rem 0 0; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
+.section-heading h2 { margin-bottom: 0; }
+.story-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.story-grid > div { border-top: 2px solid #6e9485; padding-top: 1.05rem; }
+.step, .work-kind { font: 700 0.75rem/1.5 system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.1em; color: #4d6f63; }
+.story-grid h3 { margin: 0.45rem 0; }
+.story-grid p { margin: 0; font-size: 1rem; }
+.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.work-card { padding: 1.3rem 1.5rem; border: 1px solid #c8d3cd; border-radius: 0.45rem; background: #fffefa; }
+.work-card .work-kind { margin: 0 0 0.7rem; }
+.work-card h3 { margin: 0 0 0.8rem; font-size: 1.35rem; }
+.work-card p:last-child { margin: 0; font-size: 1rem; }
+.connect { margin-top: 3rem; padding: 2rem; background: #e7eee8; border-radius: 0.5rem; }
+.connect p:last-child { margin-bottom: 0; }
 .post-card { border-top: 1px solid #c8d3cd; padding: 1.35rem 0; }
-.post-card h2 { margin: 0 0 0.4rem; }
+.post-card h2, .post-card h3 { margin: 0 0 0.4rem; }
 .post-card p { margin: 0.4rem 0; }
 code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; }
 code { overflow-wrap: anywhere; }
@@ -35,4 +57,10 @@ blockquote { margin: 2rem 0; padding: 0.2rem 1.4rem; border-left: 3px solid #537
 table { border-collapse: collapse; width: 100%; font: 0.92rem/1.5 system-ui, sans-serif; }
 th, td { padding: 0.65rem; text-align: left; border-bottom: 1px solid #c8d3cd; }
 footer { padding: 1.5rem 0 3rem; border-top: 1px solid #c8d3cd; }
-@media (max-width: 38rem) { nav { float: none; margin-top: 0.7rem; } nav a:first-child { margin-left: 0; } }
+@media (max-width: 45rem) {
+  header, main, footer { width: min(100% - 2rem, 68rem); }
+  .story-grid, .work-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 1.5rem; }
+  .section { padding-top: 2.7rem; }
+  .connect { padding: 1.35rem; }
+}

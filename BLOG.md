@@ -24,3 +24,6 @@ Site roles: `tommytai.dev` is Tommy Tai's human-facing personal website and
 dated blog. `worldweaver.dev` is the companion AI/swarm-facing regeneration and
 updates surface. Cross-link the two without treating AI state as evidence for
 the claims on the personal site.
+
+The homepage and `site/work/` are the human portfolio entry points. Use
+`PORTFOLIO_SOURCES.md` before adding career history, projects, or proof claims.
