@@ -9,14 +9,17 @@
   <meta property="og:title" content="Work and demos — Tommy Tai">
   <meta property="og:description" content="What you can try, read, or inspect, with the maturity of each project stated plainly.">
   <meta property="og:url" content="https://tommytai.dev/work/">
+  <meta name="theme-color" content="#110d10">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://tommytai.dev/work/">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('tommytai-theme')==='light'?'light':'dark'}catch{document.documentElement.dataset.theme='dark'}</script>
   <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <a class="site-name" href="/">TOMMY TAI</a>
-    <nav aria-label="Main navigation"><a href="/">Home</a><a href="/work/" aria-current="page">Work &amp; demos</a><a href="/#writing">Writing</a><a href="https://github.com/TTaoGaming">GitHub</a></nav>
+    <div class="header-actions"><nav aria-label="Main navigation"><a href="/">Home</a><a href="/work/" aria-current="page">Work &amp; demos</a><a href="/#writing">Writing</a><a href="https://github.com/TTaoGaming">GitHub</a></nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">Light mode</button></div>
   </header>
   <main>
     <p class="eyebrow">Portfolio / public index</p>
