@@ -1,0 +1,14 @@
+{
+  "schema": "tommytai.permaweb_upload_receipt.v1",
+  "payload_sha256": "e43ffcf70c09e4fa50870c346d6e421c4916b63c1b97f63e91b6db32b379bf75",
+  "bytes": 80747,
+  "provider": "ArDrive Turbo",
+  "client_mode": "UNAUTHENTICATED_FREE_ONLY",
+  "paid_funding_available": false,
+  "attempts": 1,
+  "status": "REJECTED_PAYMENT_REQUIRED",
+  "observed_utc": "2026-09-23T22:09:41.653Z",
+  "transaction_id": null,
+  "error_code": "HTTP_402",
+  "quoted_micro_usdc": "23624"
+}
