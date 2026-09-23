@@ -1,5 +1,8 @@
 # P-384 scalar inversion: 422-operation review candidate
 
+**Author:** Tommy Tai  
+**Public package updated:** 2026-09-23 UTC
+
 This folder is a self-contained addition chain for the P-384 scalar subgroup
 order `n` raised to `n - 2`. It is a candidate for review, not a claim of
 optimality, novelty, production speed, side-channel safety, or acceptance by
