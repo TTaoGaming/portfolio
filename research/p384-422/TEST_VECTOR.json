@@ -1,0 +1,18 @@
+{
+  "schema": "p384.scalar_inversion.addition_chain.test_vector.v1",
+  "curve": "P-384",
+  "purpose": "scalar inversion by exponent n-2",
+  "subgroup_order_hex": "0xffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52973",
+  "target_hex": "0xffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52971",
+  "initial_exponent": 1,
+  "row_format": "output left_parent right_parent; ASCII decimal; LF after every row",
+  "expected": {
+    "operations": 422,
+    "squarings": 382,
+    "other_multiplications": 40,
+    "weighted_squaring_cost": "0.8",
+    "weighted_cost": "345.6",
+    "certificate_sha256": "5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70"
+  },
+  "status": "generated candidate; external verification, novelty and optimality unclaimed"
+}
