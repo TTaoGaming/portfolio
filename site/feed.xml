@@ -4,12 +4,12 @@
   <link>https://tommytai.dev/</link>
   <description>Dated, reproducible research notes by Tommy Tai.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 23 Sep 2026 21:47:06 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 23 Sep 2026 21:49:16 GMT</lastBuildDate>
   <item>
     <title>A 422-operation addition chain for P-384 scalar inversion</title>
     <link>https://tommytai.dev/posts/p384-422/</link>
     <guid isPermaLink="true">https://tommytai.dev/posts/p384-422/</guid>
-    <pubDate>Wed, 23 Sep 2026 21:47:06 GMT</pubDate>
+    <pubDate>Wed, 23 Sep 2026 21:49:16 GMT</pubDate>
     <dc:creator>Tommy Tai</dc:creator>
     <description>A frozen 422-row certificate, independent checks, search method, and evidence limits.</description>
   </item>
