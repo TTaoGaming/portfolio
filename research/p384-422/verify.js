@@ -1,0 +1,9 @@
+const crypto=require('crypto');
+const N=BigInt('0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC7634D81F4372DDF581A0DB248B0A77AECEC196ACCC52973'), TARGET=N-2n, EXPECTED='5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70';
+const P=[[1,1],[2,1],[3,3],[6,6],[12,12],[24,24],[48,48],[96,96],[192,3],[195,195],[390,390],[780,780],[1560,3],[1563,192],[1755,192],[1755,780],[2535,2],[2535,1560]].map(x=>x.map(BigInt));
+const T=new Map([[186,1],[181,1563],[167,1563],[162,4095],[151,2535],[148,4095],[141,1563],[135,1947],[132,1],[123,2537],[115,3],[112,4095],[103,1563],[94,195],[86,1563],[78,1947],[72,2535],[60,1947],[53,2535],[50,3],[34,1563],[29,1755],[25,4095],[23,1755],[13,2537],[7,4095],[3,1],[0,2537]].map(([p,d])=>[p,BigInt(d)]));
+const seen=new Set(['1']); const rows=[]; let S=0,M=0; function add(a,b){if(!seen.has(a.toString())||!seen.has(b.toString()))throw Error('parent');const o=a+b;if(seen.has(o.toString())||!(a<o&&b<o))throw Error('order');rows.push([o,a,b]);seen.add(o.toString());return o;}
+for(const [a,b] of P)add(a,b); let x=4095n; for(const shift of [12,24,48,96]){const base=x;for(let i=0;i<shift;i++)x=add(x,x);x=add(x,base);} if(x!==(1n<<192n)-1n)throw Error('M192');
+for(let pos=191;pos>=0;pos--){x=add(x,x);if(T.has(pos))x=add(x,T.get(pos));} let prev=1n; const seen2=new Set(['1']);
+for(const [o,a,b] of rows){if(!seen2.has(a.toString())||!seen2.has(b.toString())||o!==a+b||!(o>prev&&a<o&&b<o))throw Error('chain');if(a===b)S++;else M++;seen2.add(o.toString());prev=o;}
+if(prev!==TARGET||rows.length!==422||S!==382||M!==40)throw Error('final/count'); const blob=rows.map(([o,a,b])=>`${o} ${a} ${b}\n`).join(''); const sha=crypto.createHash('sha256').update(blob).digest('hex'); if(sha!==EXPECTED)throw Error('sha'); console.log(`PASS ${rows.length} ${S}S ${M}M sha256=${sha}`);

@@ -1,0 +1,36 @@
+name: P-384 review packet
+
+on:
+  pull_request:
+    paths:
+      - 'research/p384-422/**'
+      - '.github/workflows/p384-review.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Certificate, projections, and negative controls
+        working-directory: research/p384-422
+        run: python3 check.py
+      - name: Independent Python and Node reconstruction
+        working-directory: research/p384-422
+        run: |
+          python3 verify.py --emit regenerated.txt
+          cmp certificate.txt regenerated.txt
+          node verify.js
+      - name: C++ reconstruction
+        working-directory: research/p384-422
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libboost-dev
+          g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify.cpp -o /tmp/p384-verify
+          /tmp/p384-verify
