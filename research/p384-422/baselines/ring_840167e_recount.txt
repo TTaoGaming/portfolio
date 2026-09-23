@@ -1,0 +1,1 @@
+PASS ring p384_scalar_inv_to_mont computes n-2: 430 = 382S + 48M, weighted(s=0.8) = 353.6

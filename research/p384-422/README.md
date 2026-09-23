@@ -81,11 +81,29 @@ digit preparation `3S + 9M`, six scaffold `sqr_mul` calls `187S + 6M`,
 and 33 remaining windows `192S + 33M`. Under this operation-count model,
 the candidate uses eight fewer unequal-parent multiplications and the same
 number of squarings. That is a comparison to this pinned revision only; it
-does not measure native runtime or establish a drop-in `ring` patch.
+does not measure native runtime. A drop-in patch for this revision is in
+`ring/` (see *Additional independent checks* below).
 
-The certificate is the review object. Mapping its retained intermediates to
-`ring`'s `Scalar<R>` variables, checking representation and aliasing, and
-benchmarking on target platforms remain integration work.
+The certificate is the review object. Benchmarking on target platforms, and
+review of the patch's representation and aliasing by `ring`'s maintainers,
+remain integration work.
+
+## Additional independent checks (r2)
+
+`./verify_all.sh` runs everything in this folder. It skips any optional tool it
+cannot find (Boost, Go's `addchain`, a `ring` checkout).
+
+| Check | Result |
+| --- | --- |
+| `tools/p384chain.py modcheck` | The chain evaluated on 200 random scalars mod `n`: `a * chain(a) = 1 (mod n)` every time. |
+| `addchain eval addchain/chain_422.acc` | [mmcloughlin/addchain](https://github.com/mmcloughlin/addchain) v0.4.0 reports `total: 422 doubles: 382 adds: 40` and final value `n - 2`. |
+| `ring/ring_840167e_p384_422.patch` | `p384_scalar_inv_to_mont` rewritten with this chain in ring's own style (same helpers, `d[]` digit table, `REMAINING_WINDOWS`). At `840167e` with the patch applied: `cargo test --release --test ecdsa_tests` 7/7 and `cargo test --release --lib p384` 12/12. |
+| `tools/baseline_ring.py` | Recounts ring's chain from source (430 = 382S + 48M) and checks that it evaluates to `n - 2`. |
+| `tools/tail_dp.py` | Exact dynamic program over the low 192 bits, with carries: 28 multiplications is the minimum for this digit set, and the chain uses 28. |
+| `baselines/` | Brian Smith's [2017 page](https://briansmith.org/ecc-inversion-addition-chains-01): 433 = 381S + 52M. addchain v0.4.0 `search`: 434. |
+| `MANIFEST.json`, `quorum/` | SHA-256 of every file plus one packet digest, and verdicts by independent model families. |
+
+These r2 checks were prepared with Claude (Anthropic); each family's verdict is in `quorum/`.
 
 [NEXT_SEARCH.md](NEXT_SEARCH.md) is a separate, optional one-page map of
 explored and open search directions and a measured-compute protocol.
