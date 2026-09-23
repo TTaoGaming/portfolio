@@ -62,7 +62,7 @@ def main():
         "mirrors": {"github": "https://github.com/TTaoGaming/portfolio/pull/1", "cloudflare": None, "arweave": None},
         "files": files,
     }
-    (HERE / "MANIFEST.json").write_text(json.dumps(m, indent=1) + "\n")
+    (HERE / "MANIFEST.json").write_bytes((json.dumps(m, indent=1) + "\n").encode("utf-8"))
     print(digest)
 
 

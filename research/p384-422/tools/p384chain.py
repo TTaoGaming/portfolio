@@ -246,10 +246,10 @@ def export(outdir: Path) -> dict:
     (outdir / "ring").mkdir(parents=True, exist_ok=True)
     rows = build()
     (outdir / "certificate.txt").write_bytes(certificate(rows))
-    (outdir / "chain_422.csv").write_text(csv_rows(rows))
-    (outdir / "addchain" / "chain_422.acc").write_text(to_acc())
+    (outdir / "chain_422.csv").write_bytes(csv_rows(rows).encode("utf-8"))
+    (outdir / "addchain" / "chain_422.acc").write_bytes(to_acc().encode("utf-8"))
     rust = to_ring_rust()
-    (outdir / "ring" / "ring_p384_scalar_inv_to_mont_422.rs").write_text(rust)
+    (outdir / "ring" / "ring_p384_scalar_inv_to_mont_422.rs").write_bytes(rust.encode("utf-8"))
     sim = simulate_ring_rust(rust)
     return check(rows) | {"modcheck_trials": modcheck(rows), "ring_rust_simulated": sim}
 
