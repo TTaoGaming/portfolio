@@ -1,0 +1,80 @@
+{
+ "family": "anthropic",
+ "model": "claude-opus-5-5",
+ "model_note": "configured model id for this session; the model serving a given turn can differ",
+ "surface": "Claude app, cloud workspace",
+ "session": "https://claude.ai/code/session_011U9bwBt3wjiYZWYWpfPqR6",
+ "role": "HFO board keeper fee4c282 (Sigrun shard roach), working for Tommy Tai",
+ "utc": "2026-09-23T22:09Z",
+ "packet_sha256": "8b58d62d99b67201a28bbdab7d6d5e5fd86f1d217dea74d72f18ad2735ec2048",
+ "certificate_sha256": "5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70",
+ "toolchain": {
+  "python": "3.11.15",
+  "node": "v22.22.2",
+  "g++": "13.3.0 + Boost 1.83",
+  "go": "1.24.7",
+  "addchain": "v0.4.0",
+  "rustc": "1.95.0"
+ },
+ "checks": [
+  {
+   "id": "fast",
+   "output": "python3 check.py: certificate, projections and six negative controls pass (their checker)"
+  },
+  {
+   "id": "python",
+   "output": "PASS 422 382S 40M sha256=5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70"
+  },
+  {
+   "id": "node",
+   "output": "PASS 422 382S 40M sha256=5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70"
+  },
+  {
+   "id": "cpp",
+   "output": "PASS 422 382S 40M"
+  },
+  {
+   "id": "recipe",
+   "output": "PASS {\"ops\": 422, \"S\": 382, \"M\": 40, \"weighted\": 345.6}"
+  },
+  {
+   "id": "mod_n",
+   "output": "PASS modcheck 200 random scalars: chain(a) == a^(n-2) mod n and a*chain(a) == 1"
+  },
+  {
+   "id": "addchain",
+   "output": "total: 422 doubles: 382 adds: 40; final value 0xffff...c52971 = n-2"
+  },
+  {
+   "id": "ring_ecdsa",
+   "at": "briansmith/ring@840167e + ring/ring_840167e_p384_422.patch",
+   "output": "cargo test --release --test ecdsa_tests: 7 passed; 0 failed"
+  },
+  {
+   "id": "ring_p384_unit",
+   "at": "briansmith/ring@840167e + patch",
+   "output": "cargo test --release --lib p384: 12 passed; 0 failed (incl. p384_scalar_inv_to_mont_zero_test)"
+  },
+  {
+   "id": "tail_dp",
+   "output": "tail_windows_min_for_this_digit_set: 28 (= used); optimal for its digits"
+  },
+  {
+   "id": "ring_baseline",
+   "output": "ring @840167e p384_scalar_inv_to_mont computes n-2: 430 = 382S + 48M"
+  },
+  {
+   "id": "addchain_baseline",
+   "output": "addchain v0.4.0 search n-2: best opt(dictionary(hybrid(4,0),continued_fractions(dichotomic))) cost 434"
+  }
+ ],
+ "not_checked": [
+  "global optimality",
+  "literature beyond the baselines in MANIFEST.json",
+  "wall-clock speed on real hardware",
+  "constant-time or side-channel behaviour beyond reusing ring's own helper functions"
+ ],
+ "independence": "Anthropic did not find this chain; it came from the swarm's search (OpenAI carriers, per Slack). This verdict re-ran the three original reconstructors and added four checks they do not share: evaluation mod n, addchain eval, ring's own tests with the chain patched in, and the tail DP.",
+ "verdict": "CONFIRMED",
+ "note": "r2 rebased onto the PR head 33eaa82 (another agent's packaging: check.py, certificate.txt, TEST_VECTOR.json, NEXT_SEARCH.md). Chain and all check results unchanged; r2 adds tools/, ring/, addchain/, baselines/, MANIFEST.json, quorum/ and verify_all.sh."
+}

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Every check in this packet: the fast check, the three reconstructions, and the r2 additions.
+# Optional tools are skipped with a note: g++ with Boost, Go's addchain, a ring checkout.
+#   RING_P384=/path/to/ring/src/ec/suite_b/ops/p384.rs ./verify_all.sh   # also recount ring's chain
+set -euo pipefail
+cd "$(dirname "$0")"
+echo "== fast check: certificate, projections, six negative controls"
+python3 check.py >/dev/null && echo "PASS check.py"
+echo "== three independent reconstructions"
+python3 verify.py --emit /tmp/p384_regenerated.txt && cmp certificate.txt /tmp/p384_regenerated.txt && echo "PASS regenerated == certificate.txt"
+node verify.js
+if command -v g++ >/dev/null && echo '#include <boost/multiprecision/cpp_int.hpp>' | g++ -std=c++17 -x c++ -fsyntax-only - 2>/dev/null; then
+  g++ -std=c++17 -O2 verify.cpp -o /tmp/p384_verify_cpp && /tmp/p384_verify_cpp
+else echo "SKIP verify.cpp (needs g++ and Boost.Multiprecision)"; fi
+echo "== r2: structure, evaluation on real scalars mod n"
+python3 tools/p384chain.py check
+python3 tools/p384chain.py modcheck --trials 200
+echo "== r2: exports regenerate byte-identical from the recipe"
+tmp=$(mktemp -d); python3 tools/p384chain.py export "$tmp" >/dev/null
+for f in certificate.txt chain_422.csv addchain/chain_422.acc ring/ring_p384_scalar_inv_to_mont_422.rs; do cmp -s "$f" "$tmp/$f" && echo "PASS $f"; done
+echo "== r2: third-party tool mmcloughlin/addchain"
+if command -v addchain >/dev/null; then addchain eval addchain/chain_422.acc | tail -1; else echo "SKIP addchain (go install github.com/mmcloughlin/addchain/cmd/addchain@v0.4.0)"; fi
+echo "== r2: tail optimality for its digit set"
+python3 tools/tail_dp.py
+if [ -n "${RING_P384:-}" ]; then echo "== r2: ring baseline"; python3 tools/baseline_ring.py "$RING_P384"; fi
+echo "ALL CHECKS DONE"

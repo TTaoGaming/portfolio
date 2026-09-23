@@ -1,0 +1,141 @@
+{
+ "schema": "hfo.review_packet.v1",
+ "packet": "p384-scalar-inversion-422",
+ "packet_sha256": "8b58d62d99b67201a28bbdab7d6d5e5fd86f1d217dea74d72f18ad2735ec2048",
+ "status": "CANDIDATE_OPEN_FOR_REVIEW",
+ "target": {
+  "curve": "NIST P-384",
+  "modulus": "group order n",
+  "n_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52973",
+  "exponent": "n-2",
+  "use": "scalar inversion by Fermat: a^-1 = a^(n-2) mod n"
+ },
+ "result": {
+  "ops": 422,
+  "squarings": 382,
+  "multiplications": 40,
+  "weighted_s_0_8": 345.6,
+  "certificate": {
+   "file": "certificate.txt",
+   "sha256": "5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70",
+   "format": "one row per op: value left right"
+  }
+ },
+ "baselines": [
+  {
+   "source": "ring p384_scalar_inv_to_mont @840167e18e4fa837eb48de46500454a616a15a6e",
+   "S": 382,
+   "M": 48,
+   "total": 430,
+   "how": "recounted by tools/baseline_ring.py",
+   "evidence": "baselines/ring_840167e_recount.txt"
+  },
+  {
+   "source": "Brian Smith, Elliptic Curve Inversion Addition Chains (2017-05-31); ring 0.17.14",
+   "S": 381,
+   "M": 52,
+   "total": 433,
+   "url": "https://briansmith.org/ecc-inversion-addition-chains-01"
+  },
+  {
+   "source": "mmcloughlin/addchain v0.4.0 search",
+   "total": 434,
+   "evidence": "baselines/addchain_v0.4.0_search_n-2.txt"
+  }
+ ],
+ "checks": [
+  {
+   "id": "python",
+   "cmd": "python3 verify.py",
+   "expect": "PASS 422 382S 40M sha256=5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70"
+  },
+  {
+   "id": "node",
+   "cmd": "node verify.js",
+   "expect": "PASS 422 382S 40M sha256=5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70"
+  },
+  {
+   "id": "cpp",
+   "cmd": "g++ -std=c++17 -O2 verify.cpp -o v && ./v",
+   "expect": "PASS 422 382S 40M"
+  },
+  {
+   "id": "fast",
+   "cmd": "python3 check.py",
+   "expect": "certificate, projections and six negative controls pass"
+  },
+  {
+   "id": "recipe",
+   "cmd": "python3 tools/p384chain.py check",
+   "expect": "PASS"
+  },
+  {
+   "id": "mod_n",
+   "cmd": "python3 tools/p384chain.py modcheck --trials 200",
+   "expect": "PASS modcheck 200"
+  },
+  {
+   "id": "addchain",
+   "cmd": "addchain eval addchain/chain_422.acc",
+   "expect": "total: 422 doubles: 382 adds: 40"
+  },
+  {
+   "id": "ring_ecdsa",
+   "cmd": "git apply ring/ring_840167e_p384_422.patch && cargo test --release --test ecdsa_tests",
+   "expect": "7 passed; 0 failed",
+   "at": "briansmith/ring@840167e"
+  },
+  {
+   "id": "tail_dp",
+   "cmd": "python3 tools/tail_dp.py",
+   "expect": "tail_is_optimal_for_its_digits: true"
+  }
+ ],
+ "claim_boundary": [
+  "candidate only",
+  "no global optimality claim",
+  "no novelty claim beyond the public baselines listed",
+  "no native speed or side-channel claim beyond the ring code it replaces",
+  "no external acceptance yet"
+ ],
+ "quorum": {
+  "families_required": [
+   "anthropic",
+   "openai",
+   "moonshot",
+   "google"
+  ],
+  "verdicts": "quorum/*.json",
+  "rule": "four distinct families CONFIRMED, no open CONTRADICTED"
+ },
+ "mirrors": {
+  "github": "https://github.com/TTaoGaming/portfolio/pull/1",
+  "cloudflare": null,
+  "arweave": null
+ },
+ "files": {
+  "NEXT_SEARCH.md": "09570f1a8f8c271c79c4299e5f6154e64f055c4eb0d3240d7db2129e1d3e519a",
+  "README.md": "2e886e2ed66dc36da4cf89133deede5407acddb5727b188c53d6f997384cd2c6",
+  "TEST_VECTOR.json": "d4d49315100584b47520445ba4af91b0e37448cd166dcbeaa1ae45ac3ce1991f",
+  "addchain/chain_422.acc": "8386d80c6e096306e9c69eea33683e84482b9f0c52fce932c77d4120fb33f4c7",
+  "baselines/addchain_v0.4.0_search_n-2.txt": "c607ba704a0f432e36b904f4cff66778a4313ecb9c4dfebdad15d9212631990d",
+  "baselines/ring_840167e_recount.txt": "ee3fd47e272738be5532296306f10521553216ff076350c524ef52b854128b86",
+  "certificate.txt": "5228f6c12fda873ebb2eecdb34a858a193e92c718efedf81b2c9de4fd72d3d70",
+  "chain_422.csv": "dd9224757846913e8875f95c8074b3a3d2a2160f5936a555df230d8689057d18",
+  "check.py": "f31afd43f349c6348b33092c7afe072d364ca9a01c75714f5efe286b6dbb9f7c",
+  "check_certificate.mjs": "c5693ec10dffb330c30a6860a010b1fc9340a25987764a4eb6bd1bf39ab836b6",
+  "check_certificate.py": "7b4fbb2f385f1d0990e23fb1d4ed283119b5f4a6af17085f0d3cd276bca3a6fd",
+  "quorum/README.md": "dba093ec4ad078a1fc546fc3ddfe801797d1bc08a1c09b370fdd2b967507f8ca",
+  "ring/ring_840167e_p384_422.patch": "87cffbd989c075123d8b3d5e993ca208337c81d064cdacbbe1f0c619735e33c9",
+  "ring/ring_p384_scalar_inv_to_mont_422.rs": "88ee0a82fa0f9b7dac23fabdb3fb24d9038cb39959245564b4c2bcc2f64ff556",
+  "tools/baseline_ring.py": "a8e455ae51e3d8519491566e487bae064e15c4457d36bde753b3217ce2bd120d",
+  "tools/make_manifest.py": "efb912e459c1f395a7876511e86287314d3e70b202a3adf4488cf6eb2aa0b238",
+  "tools/p384chain.py": "2d621bd64792a15970d3cde0f15280f836f4c4f444a84d6af07c26cc0ad3fed0",
+  "tools/tail_dp.py": "6224515f79deaf28a5d40fcb8c1e5b29364422174483172f2a792fc131920c41",
+  "values.txt": "9ac2ab7f7126cd2068733cfd0914299adbd9d2c95a184f6e648409e8269bb41d",
+  "verify.cpp": "28e5c18ae2046b2e6701965524ae8f51af583ce38b2e566818ff40c38dda5bab",
+  "verify.js": "41e97465f822f11664fff71f77312169fb9cae4dfcf51e3db8f0f3d4e66a013a",
+  "verify.py": "d8053e9fd033b3c2ea60d774ec356951238fdfba6e195d5c6bb91d3f549c7843",
+  "verify_all.sh": "f3c6f66b70ea1ae9a4349f595c53a26d23edccd02d483b79ff2c403b49254e64"
+ }
+}
