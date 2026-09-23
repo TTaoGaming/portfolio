@@ -19,3 +19,8 @@ domain status, DNS, and an external GET before reporting the post live.
 
 The P-384 certificate and verifier remain in the separate
 [`portfolio` draft PR](https://github.com/TTaoGaming/portfolio/pull/1).
+
+Site roles: `tommytai.dev` is Tommy Tai's human-facing personal website and
+dated blog. `worldweaver.dev` is the companion AI/swarm-facing regeneration and
+updates surface. Cross-link the two without treating AI state as evidence for
+the claims on the personal site.
