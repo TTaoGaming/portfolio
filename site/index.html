@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tommy Tai — movement, interactive systems, and research</title>
+  <meta name="description" content="Tommy Tai's portfolio: from exercise therapy to spatial interaction demos, browser projects, AI-agent reliability tools, and reproducible research.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Tommy Tai — movement, interactive systems, and research">
+  <meta property="og:description" content="A human introduction to Tommy Tai's work, public demos, and dated research.">
+  <meta property="og:url" content="https://tommytai.dev/">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#110d10">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://tommytai.dev/">
+  <link rel="alternate" type="application/rss+xml" title="Tommy Tai research notes" href="/feed.xml">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('tommytai-theme')==='light'?'light':'dark'}catch{document.documentElement.dataset.theme='dark'}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Tommy Tai","url":"https://tommytai.dev/","sameAs":["https://github.com/TTaoGaming"]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="/">TOMMY TAI</a>
+    <div class="header-actions"><nav aria-label="Main navigation"><a href="#story">Story</a><a href="/work/">Work &amp; demos</a><a href="#writing">Writing</a><a href="#connect">Find me</a></nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">Light mode</button></div>
+  </header>
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Tommy Tai · independent builder and researcher</p>
+      <h1>From human movement to systems people can interact with.</h1>
+      <p class="lede">I worked as an exercise therapist before building browser experiences, spatial input systems, and tools for checking the work of AI agents. The common thread is practical feedback: observe what happens, make a useful change, and test whether it really worked.</p>
+      <div class="hero-actions"><a class="button" href="/work/">Explore my work</a><a class="text-link" href="#story">How I got here ↓</a></div>
+    </div>
+
+    <section id="story" class="section" aria-labelledby="story-heading">
+      <p class="eyebrow">The through-line</p>
+      <h2 id="story-heading">A hands-on path into software</h2>
+      <div class="story-grid">
+        <div><span class="step">01 / Movement</span><h3>Exercise therapy</h3><p>My earlier work was with people and physical movement. That background still shapes how I think about feedback, accessibility, and whether an interaction actually makes sense to a person using it.</p></div>
+        <div><span class="step">02 / Interaction</span><h3>Spatial and browser experiments</h3><p>I started turning cameras, gestures, and ordinary browser input into playable experiences. The larger Spatial Input work aims to translate noisy sensor observations into stable events an application can use.</p></div>
+        <div><span class="step">03 / Verification</span><h3>AI systems and research</h3><p>Working with AI coding agents led me to build checks for false completion claims and brittle self-review. I now publish public tools, demos, and research packets with their evidence and limits attached.</p></div>
+      </div>
+    </section>
+
+    <section id="featured" class="section" aria-labelledby="featured-heading">
+      <div class="section-heading"><div><p class="eyebrow">Selected work</p><h2 id="featured-heading">A few ways in</h2></div><a class="text-link" href="/work/">Full work and demo index →</a></div>
+      <div class="work-grid">
+        <article class="work-card"><p class="work-kind">Spatial interaction · public alpha</p><h3><a href="https://demo01-handpiano.pages.dev/">Signal Refinery / HandPiano ↗</a></h3><p>A webcam gesture piano that turns tracked hand movement into notes through filtering, dwell, and hitboxes. It is a public experiment in the Spatial Input family, with tuning still in progress.</p></article>
+        <article class="work-card"><p class="work-kind">Browser games · playable</p><h3><a href="https://hfo-games.pages.dev/">Omega Games ↗</a></h3><p>A hub of small browser games. They use ordinary touch, mouse, and click input; the gesture experiment above is a separate demo.</p></article>
+        <article class="work-card"><p class="work-kind">Open tools · source</p><h3><a href="https://github.com/TTaoGaming/agentreleasegate-oss">AgentReleaseGate OSS ↗</a></h3><p>Open checks and a field guide for AI-agent reward hacking, false-green claims, and the gap between an agent saying “done” and a result another person can verify.</p></article>
+        <article class="work-card"><p class="work-kind">Research · dated packet</p><h3><a href="/posts/p384-422/">P-384 addition-chain research →</a></h3><p>A 422-operation scalar-inversion candidate with a frozen certificate and independent reconstruction checks. The note explains the search and explicitly bounds the claim.</p></article>
+      </div>
+    </section>
+
+    <section id="writing" class="section" aria-labelledby="writing-heading">
+      <p class="eyebrow">Writing and evidence</p>
+      <h2 id="writing-heading">Notes you can inspect</h2>
+      <article class="post-card">
+        <p class="meta"><time datetime="2026-09-23">23 September 2026 UTC</time> · research note</p>
+        <h3><a href="/posts/p384-422/">A 422-operation addition chain for P-384 scalar inversion</a></h3>
+        <p>The certificate, checks, method, and open questions. <a href="/releases/p384-422-public-snapshot-v1.json">Download the public snapshot</a>.</p>
+      </article>
+      <p class="small"><a href="/feed.xml">Subscribe by RSS ↗</a></p>
+    </section>
+
+    <section id="connect" class="section connect" aria-labelledby="connect-heading">
+      <p class="eyebrow">Where to go next</p>
+      <h2 id="connect-heading">Human work here. Swarm context next door.</h2>
+      <p>This is my public-facing home for my background, projects, and writing. <a href="https://worldweaver.dev/">Worldweaver</a> is the companion site for AI/swarm readers, recovery paths, cards, and dated world-state updates.</p>
+      <p>Explore <a href="/work/">the work index</a>, browse <a href="https://github.com/TTaoGaming">my public GitHub</a>, or read the <a href="/posts/p384-422/">latest research note</a>.</p>
+    </section>
+  </main>
+  <footer><p class="small">© 2026 Tommy Tai · <a href="/feed.xml">RSS</a> · <a href="https://worldweaver.dev/">Worldweaver</a></p></footer>
+</body>
+</html>

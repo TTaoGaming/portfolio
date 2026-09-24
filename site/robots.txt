@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tommytai.dev/sitemap.xml

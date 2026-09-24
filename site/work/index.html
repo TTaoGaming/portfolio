@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work and demos — Tommy Tai</title>
+  <meta name="description" content="A public guide to Tommy Tai's spatial interaction experiments, browser demos, AI-agent reliability tools, and research.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Work and demos — Tommy Tai">
+  <meta property="og:description" content="What you can try, read, or inspect, with the maturity of each project stated plainly.">
+  <meta property="og:url" content="https://tommytai.dev/work/">
+  <meta name="theme-color" content="#110d10">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://tommytai.dev/work/">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('tommytai-theme')==='light'?'light':'dark'}catch{document.documentElement.dataset.theme='dark'}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="/">TOMMY TAI</a>
+    <div class="header-actions"><nav aria-label="Main navigation"><a href="/">Home</a><a href="/work/" aria-current="page">Work &amp; demos</a><a href="/#writing">Writing</a><a href="https://github.com/TTaoGaming">GitHub</a></nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">Light mode</button></div>
+  </header>
+  <main>
+    <p class="eyebrow">Portfolio / public index</p>
+    <h1>What I have built and explored</h1>
+    <p class="lede">I work across movement, interaction, and reliable software. This page separates things you can try now from the larger systems I am still developing.</p>
+
+    <section class="section" aria-labelledby="spatial-heading">
+      <p class="eyebrow">01 / Spatial interaction</p>
+      <h2 id="spatial-heading">Turning movement into input</h2>
+      <p>My Spatial Input work connects camera observations to browser actions through normalization, filtering, intent, and a stable event interface. The ambition is to let different kinds of input drive an experience without rebuilding the experience for every sensor. The complete multi-input system remains an engineering direction; the demos below show narrower pieces of it.</p>
+      <div class="work-grid">
+        <article class="work-card"><p class="work-kind">Try it · public alpha · webcam</p><h3><a href="https://demo01-handpiano.pages.dev/">Signal Refinery / HandPiano ↗</a></h3><p>Hands-free piano using browser hand tracking, a kinematic guard, dwell, and hitboxes. A desktop browser and webcam are recommended. The demo labels its tuning work in progress.</p></article>
+        <article class="work-card"><p class="work-kind">Prototype family · not a public release</p><h3>Pointer, games, and music controls</h3><p>Other experiments include a gesture-to-pointer bridge, table-tennis interaction, and hand-to-audio controls. I use them to test primitives such as tracking stability, dwell, impact, and continuous control. Public artifacts for these prototypes are still being selected.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="play-heading">
+      <p class="eyebrow">02 / Playable browser work</p>
+      <h2 id="play-heading">Small experiences, direct feedback</h2>
+      <div class="work-grid">
+        <article class="work-card"><p class="work-kind">Try it · live browser hub</p><h3><a href="https://hfo-games.pages.dev/">Omega Games ↗</a></h3><p>A collection of small, tap-to-play HTML5 games. These use regular touch and mouse input; they are a separate part of my work from the webcam demo.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="agents-heading">
+      <p class="eyebrow">03 / AI-agent reliability</p>
+      <h2 id="agents-heading">Checking the claim of “done”</h2>
+      <p>As I built software with AI agents, I saw recurring errors: work reported as complete before a test ran, drafts described as sent, and self-review that missed the same failure as the original work. This became a separate line of tools and writing about independently checkable outcomes.</p>
+      <div class="work-grid">
+        <article class="work-card"><p class="work-kind">Inspect the source · open tools</p><h3><a href="https://github.com/TTaoGaming/agentreleasegate-oss">AgentReleaseGate OSS ↗</a></h3><p>An open policy and examples for checking AI-agent claims. The repository includes a claim gate, a reward-hack mirror, and a free field guide.</p></article>
+        <article class="work-card"><p class="work-kind">Read · companion site</p><h3><a href="https://worldweaver.dev/">Worldweaver ↗</a></h3><p>The AI/swarm-facing side of my work: cards, public context, dated world-state views, and regeneration paths. Its observations have their own dates and limits.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="research-heading">
+      <p class="eyebrow">04 / Independent research</p>
+      <h2 id="research-heading">Reproducible work, stated limits</h2>
+      <div class="work-grid">
+        <article class="work-card"><p class="work-kind">Read and verify · September 2026</p><h3><a href="/posts/p384-422/">P-384 scalar inversion candidate →</a></h3><p>A 422-operation addition chain, frozen certificate, multiple reconstructors, and a written account of the search. This is a candidate under a defined operation model; it is not a claim of runtime speed or global optimality.</p></article>
+      </div>
+    </section>
+
+    <p class="small">Public index updated <time datetime="2026-09-23">23 September 2026 UTC</time>. Project stages and links can change; a demo is evidence of its own behavior, not every proposed use of the larger system.</p>
+  </main>
+  <footer><p class="small">© 2026 Tommy Tai · <a href="/">Home</a> · <a href="/feed.xml">RSS</a></p></footer>
+</body>
+</html>
